@@ -41,7 +41,7 @@ int main()
     else if (choice == 3)
     {
         double radius;
-        sout << "Enter radius ";
+        cout << "Enter radius ";
         cin >> radius;
 
         double area = PI * radius * radius;
