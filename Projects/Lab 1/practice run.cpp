@@ -1,13 +1,16 @@
-int main(){
-    // My code will go below this line
+#include <iostream>
 
-    double width = 35.0;
-    
-    double length = 81.1;
-    
-    double height = 7.5;
+int main() {
+    int a;
 
-    // My code will go above this line
+    std::cout << "give me a number: ";
+    std::cin >> a;
 
-    return (width * length * height);
+    if (a % 2 == 0) {
+        std::cout << "a is even";
+    } else {
+        std::cout << "a is odd";
+    }
+
+    return 0;
 }
