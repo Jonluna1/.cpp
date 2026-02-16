@@ -19,7 +19,7 @@ void createMap()
     yMin = -height / 2;
     yMax = height / 2;
 
-    cout << "\nMap Created!\n";
+    cout << "Map Created!\n";
     cout << "Width: " << width << " Height: " << height << endl;
     cout << "Boundaries: (" << xMin << "," << yMin << ") to (" << xMax << "," << yMax << ")\n";
 }
