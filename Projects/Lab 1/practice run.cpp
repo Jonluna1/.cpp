@@ -1,16 +1,22 @@
 #include <iostream>
+using namespace std;
 
 int main() {
-    int a;
+    int data[] = {1, 3, 6, 3, 9, 3, 5, 7, 2, 11};
+    int size = sizeof(data) / sizeof(data[0]);
 
-    std::cout << "give me a number: ";
-    std::cin >> a;
+    int maxHugs = data[0];
+    int floor = 0;
 
-    if (a % 2 == 0) {
-        std::cout << "a is even";
-    } else {
-        std::cout << "a is odd";
+    for (int i = 1; i < size; i++) {
+        if (data[i] > maxHugs) {
+            maxHugs = data[i];
+            floor = i;
+        }
     }
+
+    cout << "Most hugs available on floor: " << floor + 1 << endl;
+    cout << "Number of hugs: " << maxHugs << endl;
 
     return 0;
 }
