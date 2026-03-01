@@ -6,8 +6,18 @@ void findMatches(const int arr1[], size_t size1, const int arr2[], size_t size2)
     std::cout << "\nMatching values: ";
 
     for (size_t i = 0; i < size1; ++i) {
+
+        bool alreadyPrinted = false;
+        for (size_t k = 0; k < i; ++k){
+           if (arr1[k] == arr1[i]) {
+            alreadyPrinted = true;
+            break;
+           } 
+        }
+        if (alreadyPrinted) continue;
+        
         for (size_t j = 0; j < size2; ++j) {
-            if (arr1[1] == arr2[j]) {
+            if (arr1[i] == arr2[j]) {
                 std::cout << arr1[i] << " ";
                 break;
             }
