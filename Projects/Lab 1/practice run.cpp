@@ -1,22 +1,106 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-    int data[] = {1, 3, 6, 3, 9, 3, 5, 7, 2, 11};
-    int size = sizeof(data) / sizeof(data[0]);
+//Base Class (Pokemon)
+class Pokemon {
+    protected: 
+    int level;
 
-    int maxHugs = data[0];
-    int floor = 0;
+    public:
+    Pokemon(int lvl) : level(lvl) {}
 
-    for (int i = 1; i < size; i++) {
-        if (data[i] > maxHugs) {
-            maxHugs = data[i];
-            floor = i;
-        }
+    // Polymorphism
+    virtual void attack() const = 0;
+    virtual void defend() const = 0;
+    virtual void evolve() = 0;
+    virtual void speak() const = 0;
+
+    virtual ~Pokemon() {}
+};
+
+// Intermediate Class (Class Type)
+class ElectricPokemon : public Pokemon {
+    public:
+    ElectricPokemon(int lvl) : Pokemon(lvl) {}
+
+    void displayType() const {
+        cout << "Type: Electric" << endl;
+    }
+};
+
+// Derived Class (Specific Pokemon)
+class Pikachu : public ElectricPokemon {
+    public:
+    Pikachu(int lvl) : ElectricPokemon(lvl) {}
+
+    void attack() const override {
+        cout << "Pikachu uses Thunderbolt!" << endl;
     }
 
-    cout << "Most hugs available on floor: " << floor + 1 << endl;
-    cout << "Number of hugs: " << maxHugs << endl;
+    void defend() const override {
+        cout << "Pikachu dodges quickly!" << endl;
+    }
+
+    void evolve() override {
+        cout << "Pikachu evolves into Raichu!" << endl;
+    }
+
+    void speak() const override {
+        cout << "Pika Pika!" << endl;
+    }
+};
+
+// Another Type Class
+class FirePokemon : public Pokemon {
+    public:
+    FirePokemon(int lvl) : Pokemon(lvl) {}
+
+    void displayType() const {
+        cout << "Type: Fire" << endl;
+    }
+};
+
+// Another Derived Pokemon
+class Charmander : public FirePokemon {
+    public:
+    Charmander(int lvl) : FirePokemon(lvl) {}
+
+    void attack() const override{
+        cout << "Charmander uses Flamethrower!" << endl;
+    }
+
+    void defend() const override {
+        cout << "Charmander shields with fire!" << endl;
+    }
+
+    void evolve() override {
+        cout << "Charmander evolves into Charmeleon!" << endl;
+    }
+
+    void speak() const override {
+        cout << "Char Char!" << endl;
+    }
+};
+
+// Main Function
+int main() {
+    // Pikachu
+    Pikachu pikachu(10);
+    pikachu.displayType();
+    pikachu.attack();
+    pikachu.defend();
+    pikachu.evolve();
+    pikachu.speak();
+
+    cout << endl;
+
+    // Charmander
+    Charmander charmander(8);
+    charmander.displayType();
+    charmander.attack();
+    charmander.defend();
+    charmander.evolve();
+    charmander.speak();
 
     return 0;
 }
