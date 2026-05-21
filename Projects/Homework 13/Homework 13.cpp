@@ -14,7 +14,7 @@ int main() {
     // Interlace maps into a new map
     std::map<int, std::pair<int,int>> interlaced;
 
-    // Iterator traversal (important for your assignment)
+    // Iterator traversal
     auto it1 = numbers1.begin();
     auto it2 = numbers2.begin();
 
